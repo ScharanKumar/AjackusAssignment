@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, Typography, Alert } from "@mui/material";
+import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, Typography, Alert } from "@mui/material";
 
 const UserList = () => {
     const [users, setUsers] = useState([]);
@@ -38,21 +38,45 @@ const UserList = () => {
     };
 
     return (
-        <div style={{padding: '20px'}}>
+        <Box>
             <Typography variant="h4" gutterBottom>User Management</Typography>
             {error && <Alert severity="error">{error}</Alert>}
             <Button variant="contained" color="primary" component={Link} to="/add">Add User</Button>
             
-            <TableContainer component={Paper} sx={{ mt: 2 }}>
+            <TableContainer component={Paper} sx={{ mt: 2, boxSizing:'border-box' }}>
                 <Table>
                     <TableHead>
                         <TableRow>
-                            <TableCell>ID</TableCell>
-                            <TableCell>First Name</TableCell>
-                            <TableCell>Last Name</TableCell>
-                            <TableCell>Email</TableCell>
-                            <TableCell>Department</TableCell>
-                            <TableCell>Actions</TableCell>
+                            <TableCell sx={{
+                                    backgroundColor: "green",
+                                    color: "white",
+                                    fontWeight: "600",
+                                }}>ID</TableCell>
+                            <TableCell sx={{
+                                    backgroundColor: "green",
+                                    color: "white",
+                                    fontWeight: "600",
+                                }}>First Name</TableCell>
+                            <TableCell sx={{
+                                    backgroundColor: "green",
+                                    color: "white",
+                                    fontWeight: "600",
+                                }}>Last Name</TableCell>
+                            <TableCell sx={{
+                                    backgroundColor: "green",
+                                    color: "white",
+                                    fontWeight: "600",
+                                }}>Email</TableCell>
+                            <TableCell sx={{
+                                    backgroundColor: "green",
+                                    color: "white",
+                                    fontWeight: "600",
+                                }}>Department</TableCell>
+                            <TableCell sx={{
+                                    backgroundColor: "green",
+                                    color: "white",
+                                    fontWeight: "600",
+                                }}>Actions</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -74,7 +98,7 @@ const UserList = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
-        </div>
+        </Box>
     );
 };
 

@@ -55,7 +55,7 @@ const UserForm = () => {
     };
 
     return (
-        <Paper sx={{ padding: 3, maxWidth: 500, margin: "auto", mt: 5 }}>
+        <Paper sx={{ padding: 3, maxWidth: 500, margin: "auto", pt: 5 }}>
             <Typography variant="h5" gutterBottom>{id ? "Edit User" : "Add User"}</Typography>
             {error && <Alert severity="error">{error}</Alert>}
             <form onSubmit={handleSubmit}>
