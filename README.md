@@ -1,3 +1,16 @@
+<!-- Setup and run process -->
+1-> Clone the github repository.
+2-> Go to user-management-dashboard directory.
+3-> Run npm install command.
+4-> Run npm start command.
+5-> The app will then run in the http://localhost:3000 url.
+<!-- Setup and run process -->
+
+<!-- Challenges faced -->
+Before I saw this assignment, I was not having idea of JSONPlaceholder, but by this assignment I got exposure to JSONPlaceholder, I learned about it and integrated to my website.
+<!-- Challenges faced -->
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
