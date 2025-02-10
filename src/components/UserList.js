@@ -9,74 +9,92 @@ const UserList = () => {
 
     useEffect(() => {
         // Fetching users on landing to this page.
-        const fetchUsers = async()=>{
-            try{
-               const response = await axios.get("https://jsonplaceholder.typicode.com/users");
-               setUsers(response.data)
-            // Through inspect we can see all the users data that are fetched.
-               console.log("All users data: ", response.data)
+        const fetchUsers = async () => {
+            try {
+                const response = await axios.get("https://jsonplaceholder.typicode.com/users");
+                setUsers(response.data)
+                // Through inspect we can see all the users data that are fetched.
+                console.log("All users data: ", response.data)
             }
-            catch(error){
+            catch (error) {
                 setError("Failed to fetch users. Please try again.");
             }
         }
         fetchUsers();
     }, []);
 
-    const handleDelete = async(id) => {
+    const handleDelete = async (id) => {
 
-        try{
+        try {
             const response = await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
             // Through inspect we can the deletion response sent from the JSONPlaceholder after deleting a user.
-            console.log("Response after deleting a user: ",response)
+            console.log("Response after deleting a user: ", response)
             setUsers(users.filter(user => user.id !== id));
             alert("User deleted (simulated)!");
         }
-        catch(error){
+        catch (error) {
             setError("Error deleting user.");
         }
     };
 
     return (
-        <Box>
-            <Typography variant="h4" gutterBottom>User Management</Typography>
+        <Box >
+            <Typography  variant="h4" gutterBottom>User Management Dashboard</Typography>
             {error && <Alert severity="error">{error}</Alert>}
             <Button variant="contained" color="primary" component={Link} to="/add">Add User</Button>
-            
-            <TableContainer component={Paper} sx={{ mt: 2, boxSizing:'border-box' }}>
+
+            <TableContainer component={Paper} sx={{ mt: 2, boxSizing: 'border-box' }}>
                 <Table>
                     <TableHead>
                         <TableRow>
-                            <TableCell sx={{
+                            <TableCell
+                                sx={{
                                     backgroundColor: "green",
                                     color: "white",
                                     fontWeight: "600",
-                                }}>ID</TableCell>
-                            <TableCell sx={{
+                                }}>
+                                ID
+                            </TableCell>
+                            <TableCell
+                                sx={{
                                     backgroundColor: "green",
                                     color: "white",
                                     fontWeight: "600",
-                                }}>First Name</TableCell>
-                            <TableCell sx={{
+                                }}>
+                                First Name
+                            </TableCell>
+                            <TableCell
+                                sx={{
                                     backgroundColor: "green",
                                     color: "white",
                                     fontWeight: "600",
-                                }}>Last Name</TableCell>
-                            <TableCell sx={{
+                                }}>
+                                Last Name
+                            </TableCell>
+                            <TableCell
+                                sx={{
                                     backgroundColor: "green",
                                     color: "white",
                                     fontWeight: "600",
-                                }}>Email</TableCell>
-                            <TableCell sx={{
+                                }}>
+                                Email
+                            </TableCell>
+                            <TableCell
+                                sx={{
                                     backgroundColor: "green",
                                     color: "white",
                                     fontWeight: "600",
-                                }}>Department</TableCell>
-                            <TableCell sx={{
+                                }}>
+                                Department
+                            </TableCell>
+                            <TableCell
+                                sx={{
                                     backgroundColor: "green",
                                     color: "white",
                                     fontWeight: "600",
-                                }}>Actions</TableCell>
+                                }}>
+                                Actions
+                            </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -88,7 +106,7 @@ const UserList = () => {
                                 <TableCell>{user.email}</TableCell>
                                 {/* If department is present then we can display directly. As we are not getting department data of the users
                                  from JSONPlaceholder, so i am assuming department in this manner.  */}
-                                <TableCell>{user.department || `Department ${user.id}`}</TableCell> 
+                                <TableCell>{user.department || `Department ${user.id}`}</TableCell>
                                 <TableCell>
                                     <Button variant="contained" color="warning" component={Link} to={`/edit/${user.id}`} sx={{ m: 0.5 }}>Edit</Button>
                                     <Button variant="contained" color="error" onClick={() => handleDelete(user.id)} sx={{ m: 0.5 }}>Delete</Button>
@@ -103,10 +121,3 @@ const UserList = () => {
 };
 
 export default UserList;
-
-
-
-
-
-
-

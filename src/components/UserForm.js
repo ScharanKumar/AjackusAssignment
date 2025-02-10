@@ -41,11 +41,11 @@ const UserForm = () => {
             const addOrEditUserBasedOnIdResponse = await axios[method](url, user);
             alert(id ? "User updated (simulated)" : "User added (simulated)");
             // Displaying addOrEditUserBasedOnIdResponse data in the console
-            if (id){
+            if (id) {
                 console.log("Edited data of user: ", addOrEditUserBasedOnIdResponse.data)
             }
-            else{
-                console.log("Added user data: ",addOrEditUserBasedOnIdResponse.data);
+            else {
+                console.log("Added user data: ", addOrEditUserBasedOnIdResponse.data);
             }
             navigate("/");
         }
@@ -59,10 +59,14 @@ const UserForm = () => {
             <Typography variant="h5" gutterBottom>{id ? "Edit User" : "Add User"}</Typography>
             {error && <Alert severity="error">{error}</Alert>}
             <form onSubmit={handleSubmit}>
-                <TextField fullWidth margin="normal" label="First Name" value={user.firstName} onChange={e => setUser({ ...user, firstName: e.target.value })} required />
-                <TextField fullWidth margin="normal" label="Last Name" value={user.lastName} onChange={e => setUser({ ...user, lastName: e.target.value })} required />
-                <TextField fullWidth margin="normal" label="Email" type="email" value={user.email} onChange={e => setUser({ ...user, email: e.target.value })} required />
-                <TextField fullWidth margin="normal" label="Department" value={user.department} onChange={e => setUser({ ...user, department: e.target.value })} required />
+                <TextField fullWidth margin="normal" label="First Name" value={user.firstName}
+                    onChange={e => setUser({ ...user, firstName: e.target.value })} required />
+                <TextField fullWidth margin="normal" label="Last Name" value={user.lastName}
+                    onChange={e => setUser({ ...user, lastName: e.target.value })} required />
+                <TextField fullWidth margin="normal" label="Email" type="email" value={user.email}
+                    onChange={e => setUser({ ...user, email: e.target.value })} required />
+                <TextField fullWidth margin="normal" label="Department" value={user.department}
+                    onChange={e => setUser({ ...user, department: e.target.value })} required />
 
                 <Box mt={2}>
                     <Button type="submit" variant="contained" color="primary" fullWidth>{id ? "Update User" : "Add User"}</Button>
